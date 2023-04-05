@@ -2,15 +2,18 @@
 
 const Card = (props) => {
 
-console.log(props.bgColor)
-
+    const clr = `bg-${props.colorName}/[0.1]`
+    console.log(clr)
     return ( 
-        <div className={`bg-${props.color}/[0.1] p-4 flex items-center justify-between rounded-md sm:w-full`}>
-            <div className={`text-${props.color} flex`}>
-                <img src={`../src/assets/images/${props.imgName}`} alt="" className="px-2"/>
-                <p className="">{props.cardName}</p>
+        <div className={`${props.bgClass} p-4 flex items-center justify-between rounded-md sm:w-full`}>
+            <div className={`${props.textClass} flex`}>
+                <img src={props.imgUrl} alt="" className="px-2"/>
+                <p>{props.cardName}</p>
             </div>
-            <p>{props.cardValue}</p>
+            <div>
+                <span className="font-bold">{props.cardValue}</span>
+                <span className=" opacity-50"> / 100</span>
+            </div>
         </div>
     );
 }
